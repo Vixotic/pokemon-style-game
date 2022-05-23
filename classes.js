@@ -219,3 +219,18 @@ class Boundary {
     c.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 }
+
+class Score {
+  constructor({ position }) {
+    this.position = position
+    this.width = 48
+    this.height = 48
+    this.score = 0
+  }
+
+  draw() {
+    c.font = '30px Arial'
+    c.fillStyle = '#fff'
+    c.fillText(this.score, this.position.x, this.position.y)
+  }
+}

@@ -366,3 +366,22 @@ addEventListener('click', () => {
     clicked = true
   }
 })
+
+var state = {
+  player: { x: 4, y: 3 },
+  score: 10
+};
+
+var SAVE_KEY = 'save';
+
+function save(state) {
+  localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+}
+
+function load() {
+  return JSON.parse(localStorage.getItem(SAVE_KEY));
+}
+
+var state = load();
+state.score += 10;
+save(state);
