@@ -51,6 +51,9 @@ battleZonesMap.forEach((row, i) => {
   })
 })
 
+const pauseImage = new Image()
+pauseImage.src = './img/pause.png'
+
 const image = new Image()
 image.src = './img/Pellet Town.png'
 
@@ -68,6 +71,14 @@ playerLeftImage.src = './img/playerLeft.png'
 
 const playerRightImage = new Image()
 playerRightImage.src = './img/playerRight.png'
+
+const pause = new Sprite({
+  position: {
+    x: 0,
+    y: 0,
+  },
+  image: pauseImage
+})
 
 const player = new Sprite({
   position: {
@@ -136,6 +147,7 @@ const battle = {
 function animate() {
   const animationId = window.requestAnimationFrame(animate)
   background.draw()
+  pause.draw()
   boundaries.forEach((boundary) => {
     boundary.draw()
   })
