@@ -18,10 +18,9 @@ function pauseScreen() {
   bgImage.src = './img/startScreen.png'
   bgImage.onload = () => {
     c.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
-
-    document.addEventListener('keypress', (e) => {
-      if(e.keycode==h) return
-      c.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
+    document.addEventListener('keypress', (m) => {
+      if(m.key===77)
+        startScreen()
     })
   }
 }
@@ -74,7 +73,6 @@ function initBattle() {
       if (draggle.health <= 0) {
         queue.push(() => {
           draggle.faint()
-          score+=10
         })
         queue.push(() => {
           // fade back to black
@@ -82,6 +80,7 @@ function initBattle() {
             opacity: 1,
             onComplete: () => {
               cancelAnimationFrame(battleAnimationId)
+              battleScore += 50
               animate()
               document.querySelector('#userInterface').style.display = 'none'
  
@@ -145,8 +144,6 @@ function initBattle() {
 function animateBattle() {
   battleAnimationId = window.requestAnimationFrame(animateBattle)
   battleBackground.draw()
-
-  console.log(battleAnimationId)
 
   renderedSprites.forEach((sprite) => {
     sprite.draw()

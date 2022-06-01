@@ -4,6 +4,21 @@ const c = canvas.getContext('2d')
 canvas.width = 1024
 canvas.height = 576
   
+let battleScore = 0
+document.addEventListener('keyup', e => {
+  if (e.key !== 'p') return
+  window.location.href = `score.html?score=${battleScore}`
+})
+
+function showBattleScore() {
+  c.fillStyle = '#000000'
+  c.strokeStyle = '#00000'
+  c.font = '30px Arial'
+  c.strokeWidth = 4
+  c.fillText(`Score: ${battleScore}`, canvas.width - 200, 50)
+  c.stroke()
+  c.fill()
+}
   
 const collisionsMap = []
 for (let i = 0; i < collisions.length; i += 70) {
@@ -156,6 +171,8 @@ function animate() {
   })
   player.draw()
   foreground.draw()
+
+  showBattleScore()
 
   let moving = true
   player.animate = false
@@ -398,3 +415,4 @@ function load() {
 var state = load();
 state.score += 10;
 save(state);
+
