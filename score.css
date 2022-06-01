@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+body{
+    background-image: url('./img/scorePage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Nunito', sans-serif;
+}
+
+table{
+    margin-top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px black;
+}
+
+tr{
+    border-width: 2px;
+}
+
+th{
+    margin-top: 1%;
+    padding: 2%;
+    color: aquamarine;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+
+td{
+    margin-top: 1%;
+    padding: 2%;
+}
