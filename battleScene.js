@@ -1,3 +1,31 @@
+function startScreen() {
+  const bgImage = new Image()
+  bgImage.src = './img/startScreen.png'
+  bgImage.onload = () => {
+    c.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
+
+    let gameStarted = false
+    document.addEventListener('keypress', () => {
+      if(gameStarted) return
+      animate()
+      gameStarted = true
+    })
+  }
+}
+
+function pauseScreen() {
+  const psImage = new Image()
+  bgImage.src = './img/startScreen.png'
+  bgImage.onload = () => {
+    c.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
+
+    document.addEventListener('keypress', (e) => {
+      if(e.keycode==h) return
+      c.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
+    })
+  }
+}
+
 const battleBackgroundImage = new Image()
 battleBackgroundImage.src = './img/battleBackground.png'
 const battleBackground = new Sprite({
@@ -13,6 +41,7 @@ let emby
 let renderedSprites
 let battleAnimationId
 let queue
+let score = 0
 
 function initBattle() {
   document.querySelector('#userInterface').style.display = 'block'
@@ -45,6 +74,7 @@ function initBattle() {
       if (draggle.health <= 0) {
         queue.push(() => {
           draggle.faint()
+          score+=10
         })
         queue.push(() => {
           // fade back to black
@@ -54,7 +84,7 @@ function initBattle() {
               cancelAnimationFrame(battleAnimationId)
               animate()
               document.querySelector('#userInterface').style.display = 'none'
-
+ 
               gsap.to('#overlappingDiv', {
                 opacity: 0
               })
@@ -123,7 +153,8 @@ function animateBattle() {
   })
 }
 
-animate()
+startScreen()
+// animate()
 // initBattle()
 // animateBattle()
 
