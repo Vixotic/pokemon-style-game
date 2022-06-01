@@ -80,7 +80,7 @@ function initBattle() {
             opacity: 1,
             onComplete: () => {
               cancelAnimationFrame(battleAnimationId)
-              battleScore += 50
+              battleScore += 5
               animate()
               document.querySelector('#userInterface').style.display = 'none'
  
