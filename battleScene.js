@@ -1,3 +1,4 @@
+//start here
 function startScreen() {
   const bgImage = new Image()
   bgImage.src = './img/startScreen.png'
